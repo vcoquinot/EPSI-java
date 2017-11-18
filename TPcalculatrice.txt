@@ -12,65 +12,69 @@ public class Application {
         int choixOperateur;
         String CHOIX_firstNumber = "Choisisez votre premier nombre";
         String CHOIX_secondNumber = " Choisissez votre second nombre";
+        final int CHOIX_QUITTER = 5;
 
         do {
-            System.out.println("Choisissez votre opérateur");
-            System.out.println("1-Addition");
-            System.out.println("2-Soustraction");
-            System.out.println("3-Multiplication");
-            System.out.println("4-Division");
-            System.out.println("5 - Quitter");
+            do {
+                System.out.println("Choisissez votre opérateur");
+                System.out.println("1-Addition\n " +
+                        "2-Soustraction\n" +
+                        "3-Multiplication\n" +
+                        "4-Division\n" +
+                        "5-QUITTER");
 
-            choixOperateur = ConsoleReader.readInt("Faites votre choix");
+                choixOperateur = ConsoleReader.readInt("Faites votre choix");
 
-            if (choixOperateur < 1 || choixOperateur > 5) {
-                System.out.println("Erreur de saisie : entrez un chiffre entre 1 et 5");
-            }
-        }while (choixOperateur < 1 || choixOperateur > 5);
-        int firstNumber =0;
-        int secondNumber=0;
-        int result=0;
+                if (choixOperateur < 1 || choixOperateur > CHOIX_QUITTER) {
+                    System.out.println("Erreur de saisie : entrez un chiffre entre 1 et 5");
+                }
+            } while (choixOperateur < 1 || choixOperateur > CHOIX_QUITTER);
 
-        if (choixOperateur == 1) {
-            System.out.print("Vous avez choisi une addition");
-            System.out.println(CHOIX_firstNumber);
-            firstNumber = ConsoleReader.readInt("");
-            System.out.println(CHOIX_secondNumber);
-            secondNumber = ConsoleReader.readInt("");
-            result = firstNumber + secondNumber;
-            System.out.println("Le résultat est " + result);
-        }
-        else if (choixOperateur == 2) {
-            System.out.println("Vous avez choisi une soustraction");
-            System.out.println(CHOIX_firstNumber);
-            firstNumber = ConsoleReader.readInt("");
-            System.out.println(CHOIX_secondNumber);
-            secondNumber = ConsoleReader.readInt("");
-            result = firstNumber - secondNumber;
-            System.out.println("Le résultat est " + result);
-        }
-        else if  (choixOperateur == 3){
-            System.out.println("Vous avez choisi une multiplication");
-            System.out.println(CHOIX_firstNumber);
-            firstNumber = ConsoleReader.readInt("");
-            System.out.println(CHOIX_secondNumber);
-            secondNumber = ConsoleReader.readInt("");
-            result = firstNumber * secondNumber;
-            System.out.println("Le résultat est " + result);
-        }
-        else if (choixOperateur == 4){
-            System.out.println("Vous avez choisi une division");
-            System.out.println(CHOIX_firstNumber);
-            firstNumber = ConsoleReader.readInt("");
-            System.out.println(CHOIX_secondNumber);
-            secondNumber = ConsoleReader.readInt("");
-                if (secondNumber == 0){
-                System.out.println("votre nombre doit être supérieur à 0");
+            int firstNumber = 0;
+            int secondNumber = 0;
+            int result = 0;
+
+            if (choixOperateur == 1) {
+                System.out.print("Vous avez choisi une addition");
+                System.out.println(CHOIX_firstNumber);
+                firstNumber = ConsoleReader.readInt("");
                 System.out.println(CHOIX_secondNumber);
                 secondNumber = ConsoleReader.readInt("");
+                result = firstNumber + secondNumber;
+                System.out.println("Le résultat est " + result);
+            } else if (choixOperateur == 2) {
+                System.out.println("Vous avez choisi une soustraction");
+                System.out.println(CHOIX_firstNumber);
+                firstNumber = ConsoleReader.readInt("");
+                System.out.println(CHOIX_secondNumber);
+                secondNumber = ConsoleReader.readInt("");
+                result = firstNumber - secondNumber;
+                System.out.println("Le résultat est " + result);
+            } else if (choixOperateur == 3) {
+                System.out.println("Vous avez choisi une multiplication");
+                System.out.println(CHOIX_firstNumber);
+                firstNumber = ConsoleReader.readInt("");
+                System.out.println(CHOIX_secondNumber);
+                secondNumber = ConsoleReader.readInt("");
+                result = firstNumber * secondNumber;
+                System.out.println("Le résultat est " + result);
+            } else if (choixOperateur == 4) {
+                System.out.println("Vous avez choisi une division");
+                System.out.println(CHOIX_firstNumber);
+                firstNumber = ConsoleReader.readInt("");
+                System.out.println(CHOIX_secondNumber);
+                secondNumber = ConsoleReader.readInt("");
+                if (secondNumber == 0) {
+                    System.out.println("votre nombre doit être supérieur à 0");
+                    System.out.println(CHOIX_secondNumber);
+                    secondNumber = ConsoleReader.readInt("");
                 }
-            result = firstNumber / secondNumber;
-            System.out.println("Le résultat est " + result);
-        }
+                result = firstNumber / secondNumber;
+                System.out.println("Le résultat est " + result);
+            } else {
+                System.out.println("Au revoir !");
+            }
+
+        }while(choixOperateur != CHOIX_QUITTER);
     }
 }
